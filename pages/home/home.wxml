@@ -1,3 +1,18 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
-<button>点击</button>
+<w-swiper list="{{banners}}"/>
+
+<w-recommend recommends="{{recommends}}" bind:imageload="handleImageLoad"/>
+
+<w-popular/>
+
+<w-tab-control titles="{{titles}}" 
+                bind:tabclick="handleTabClick" 
+                class="{{isTabFixed ? 'fixed': ''}}"
+                id="tab-control">
+                </w-tab-control>
+<w-tab-control titles="{{titles}}" wx:if="{{isTabFixed}}" />
+
+<w-goods goods="{{goods[currentType].list}}"/>
+
+<w-back-top wx:if="{{showBackTop}}"/>
+
